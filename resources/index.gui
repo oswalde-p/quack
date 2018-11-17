@@ -1,0 +1,7 @@
+<svg id="background" class="background">
+  <text id="stat1" class="stat"></text>
+  <text id="stat2" class="stat"></text>
+  <text id="time" />
+  <text id="message">Ellie is a butt! </text>
+  <text id="date" />
+</svg>
