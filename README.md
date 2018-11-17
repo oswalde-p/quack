@@ -14,6 +14,7 @@
 ## Usage
 * clone repo
 * run **npm install**
+* make sure watch is connected to the Developer Bridge
 * start fitbit console with **npx fitbit**
 * build: **fitbit$ build**
 * install: **fitbit$ install**

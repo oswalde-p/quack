@@ -14,7 +14,7 @@
 }
 
 #message{
-  font-size: 40;
+  font-size: 30;
   text-anchor: middle;
   x: 50%;
   y: 80%;
@@ -33,11 +33,11 @@
 .stat{
   font-size: 20;
   fill: rgb(100,100,100);
-  
+
 }
 
 #stat1{
-  x:10%;
+  x:5%;
   y:20;
   text-anchor: start;
   text-length: 32;
@@ -48,7 +48,7 @@
   text-anchor: end;
   text-length: 32;
   y:20;
-  x:90%
+  x:94%
 }
 
 

@@ -3,7 +3,14 @@ import document from "document";
 import { preferences } from "user-settings";
 import { battery } from "power";
 import * as util from "../common/utils";
+import { me as device } from "device";
+import { type } from "os";
 
+// settings
+const CONFIG = {
+  NO_SYNC_LIMIT: 5,
+  SECOND_TIME_OFFSET: 10
+}
 // Update the clock every minute
 clock.granularity = "minutes";
 
@@ -16,6 +23,8 @@ const dateText = document.getElementById("date");
 
 const batteryStatusText = document.getElementById("stat1");
 const secondTimeText = document.getElementById("stat2");
+const warningIcon = document.getElementById("warningIcon")
+const warningTimeText = document.getElementById("warningTime")
 
 let messageOn = false;
 message.style.display = "none";
@@ -28,8 +37,9 @@ clock.ontick = (evt) => {
   let now = evt.date;
   updateClock(now);
   updateDate(now);
-  updateSecondTime(now, 10)
+  updateSecondTime(now, CONFIG.SECOND_TIME_OFFSET)
   updateBattery();
+  updateConnectionStatus(now)
 }
 
 background.onclick = (e) => {
@@ -46,6 +56,26 @@ function toggleMessage(){
   }
 }
 
+function debug(str){
+  message.text = str
+}
+
+function updateConnectionStatus(now){
+  let minutesSinceSync = (now - device.lastSyncTime) / (60*1000) // not 100% sure this is actually minutes - need to test
+  debug("Since sync: " +minutesSinceSync +"m")
+  if (minutesSinceSync > CONFIG.NO_SYNC_LIMIT){
+    showSyncWarning(minutesSinceSync)
+  }
+
+}
+
+function showSyncWarning(minutes){
+  if (warningIcon && warningTimeText){
+    warningIcon.style.display = "block"
+    warningTimeText.text = `${minutes}m`
+  }
+}
+
 function updateDate(now){
   dateText.text = formatDate(now.getDate(), now.getMonth());
 }
@@ -57,7 +87,7 @@ function updateSecondTime(now, offset){
 
 function updateBattery(){
   batteryStatusText.text = Math.floor(battery.chargeLevel) + "%"
-} 
+}
 function updateClock(now){
     timeText.text = getTimeStr(now);
 }
@@ -90,7 +120,7 @@ function getTimeStr(now, offset=0){
 function formatDate(date, month){
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July",
                      "Aug", "Sep", "Oct", "Nov", "Dec"];
-  
+
   //const lastDigit = date % 10;
   return (monthNames[month] + " " + date);
 }
