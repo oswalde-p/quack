@@ -1,4 +1,10 @@
 {
+  "name": "quack",
+  "version": "0.8.0",
+  "devDependencies": {
+    "@fitbit/sdk": "~1.0.4",
+    "@fitbit/sdk-cli": "^1.0.2"
+  },
   "fitbit": {
     "appUUID": "385076eb-cd5a-40b9-ac6e-64cb0fa2e25b",
     "appType": "clockface",
@@ -16,10 +22,9 @@
       "en": {
         "name": "Shitty clock"
       }
-    },
-    "devDependencies": {
-      "@fitbit/sdk": "~1.0.0",
-      "@fitbit/sdk-cli": "^1.0.0"
     }
+  },
+  "scripts": {
+    "build": "fitbit-build"
   }
 }

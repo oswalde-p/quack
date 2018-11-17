@@ -37,15 +37,18 @@
 }
 
 #stat1{
-  x:2%;
+  x:10%;
   y:20;
   text-anchor: start;
+  text-length: 32;
 }
 
 #stat2{
+  font-size: 22;
   text-anchor: end;
+  text-length: 32;
   y:20;
-  x:98%
+  x:90%
 }
 
 
