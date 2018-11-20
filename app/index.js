@@ -8,7 +8,7 @@ import { type } from "os";
 
 // settings
 const CONFIG = {
-  NO_SYNC_LIMIT: 5,
+  NO_SYNC_LIMIT: 30,
   SECOND_TIME_OFFSET: 10
 }
 // Update the clock every minute
@@ -20,17 +20,16 @@ const timeText = document.getElementById("time");
 const background = document.getElementById("background");
 const message = document.getElementById("message");
 const dateText = document.getElementById("date");
-
+const settingsButton = document.getElementById("bottom-left")
 const batteryStatusText = document.getElementById("stat1");
 const secondTimeText = document.getElementById("stat2");
 const warningIcon = document.getElementById("warningIcon")
 const warningTimeText = document.getElementById("warningTime")
+const settingsScreen = document.getElementById("settings-screen")
 
 let messageOn = false;
 message.style.display = "none";
 
-
-secondTimeText.text = "10:00"
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
@@ -42,37 +41,21 @@ clock.ontick = (evt) => {
   updateConnectionStatus(now)
 }
 
-background.onclick = (e) => {
-  toggleMessage();
-}
-
-function toggleMessage(){
-  if(messageOn){
-    message.style.display = "none";
-    messageOn = false;
-  }else{
-    message.style.display = "inline";
-    messageOn = true;
-  }
-}
-
-function debug(str){
-  message.text = str
-}
 
 function updateConnectionStatus(now){
-  let minutesSinceSync = (now - device.lastSyncTime) / (60*1000) // not 100% sure this is actually minutes - need to test
-  debug("Since sync: " +minutesSinceSync +"m")
+  let minutesSinceSync = (now - device.lastSyncTime) / (60*1000)
   if (minutesSinceSync > CONFIG.NO_SYNC_LIMIT){
     showSyncWarning(minutesSinceSync)
+    message.style.display = 'inline'
+  }else{
+      message.style.display = 'none'
   }
 
 }
 
 function showSyncWarning(minutes){
-  if (warningIcon && warningTimeText){
-    warningIcon.style.display = "block"
-    warningTimeText.text = `${minutes}m`
+  if (warningTimeText){
+    warningTimeText.text = `${minutes}m since sync`
   }
 }
 
@@ -123,4 +106,14 @@ function formatDate(date, month){
 
   //const lastDigit = date % 10;
   return (monthNames[month] + " " + date);
+}
+
+// handle settings button
+settingsButton.onmousedown = (e) => {
+    showSettings()
+}
+
+function showSettings(){
+    settingsScreen.style.display = 'inline'
+    console.log("Displaying settings...")
 }

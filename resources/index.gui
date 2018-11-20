@@ -1,7 +1,17 @@
 <svg id="background" class="background">
+  <link rel="import" href="settings.gui" />
+
+  <svg id="top-left">
   <text id="stat1" class="stat"></text>
+  </svg>
+
+  <svg id="top-right">
   <text id="stat2" class="stat"></text>
+  </svg>
+
   <text id="time" />
   <text id="message">Ellie is a butt! </text>
   <text id="date" />
+
+  <rect id="bottom-left"></rect>
 </svg>
