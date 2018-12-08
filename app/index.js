@@ -5,6 +5,7 @@ import { battery } from "power";
 import * as util from "../common/utils";
 import { me as device } from "device";
 import { type } from "os";
+import { vibration } from "haptics"
 
 // settings
 const CONFIG = {
@@ -28,7 +29,6 @@ const settingsScreen = document.getElementById("settings-screen")
 let messageOn = false;
 message.style.display = "none";
 
-
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
   let now = evt.date;
@@ -44,6 +44,10 @@ function updateConnectionStatus(now){
   let minutesSinceSync = (now - device.lastSyncTime) / (60*1000)
   if (minutesSinceSync > CONFIG.NO_SYNC_LIMIT){
     showSyncWarning(minutesSinceSync)
+    if (message.style.display === 'none'){
+        // showing warning for first time
+        warningVibrate()
+    }
     message.style.display = 'inline'
   }else{
       message.style.display = 'none'
@@ -106,12 +110,6 @@ function formatDate(date, month){
   return (monthNames[month] + " " + date);
 }
 
-// handle settings button
-settingsButton.onmousedown = (e) => {
-    showSettings()
-}
-
-function showSettings(){
-    settingsScreen.style.display = 'inline'
-    console.log("Displaying settings...")
+function warningVibrate(){
+    vibration.start("nudge-max")
 }
