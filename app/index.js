@@ -23,8 +23,6 @@ const dateText = document.getElementById("date");
 const settingsButton = document.getElementById("bottom-left")
 const batteryStatusText = document.getElementById("stat1");
 const secondTimeText = document.getElementById("stat2");
-const warningIcon = document.getElementById("warningIcon")
-const warningTimeText = document.getElementById("warningTime")
 const settingsScreen = document.getElementById("settings-screen")
 
 let messageOn = false;
@@ -54,8 +52,8 @@ function updateConnectionStatus(now){
 }
 
 function showSyncWarning(minutes){
-  if (warningTimeText){
-    warningTimeText.text = `${minutes}m since sync`
+  if (message){
+    message.text = `${minutes}m since sync`
   }
 }
 

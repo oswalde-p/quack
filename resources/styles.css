@@ -14,11 +14,11 @@
 }
 
 #message{
-  font-size: 30;
+  font-size: 26;
   text-anchor: middle;
   x: 50%;
   y: 80%;
-  fill: white;
+  fill: #ab1931;
 }
 
 #date{
@@ -27,7 +27,7 @@
   x: 50%;
   y: 100%-10;
   font-size: 30;
-  fill: white;
+  fill: #d1d1d1;
 }
 
 .stat{
