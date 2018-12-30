@@ -9,7 +9,7 @@ import { vibration } from "haptics"
 
 // settings
 const CONFIG = {
-  NO_SYNC_LIMIT: 30,
+  NO_SYNC_LIMIT: 35,
   SECOND_TIME_OFFSET: 10
 }
 // Update the clock every minute
@@ -57,8 +57,18 @@ function updateConnectionStatus(now){
 
 function showSyncWarning(minutes){
   if (message){
+    let roundTo = 5
+    if (minutes > 60) {
+      roundTo = 10
+    }
+    const roundedMinutes = round(minutes, roundTo)
     message.text = `${minutes}m since sync`
   }
+}
+
+function round(number, roundTo) {
+  const rounded = Math.round(number)
+  return rounded -  rounded % roundTo
 }
 
 function updateDate(now){

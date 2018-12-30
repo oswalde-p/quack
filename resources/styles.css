@@ -52,14 +52,6 @@
   x:94%
 }
 
-#bottom-left{
-  x: 0;
-  y: 80%;
-  width: 20%;
-  height: 20%;
-  fill: rgb(82, 205, 56);
-
-}
 
 #settings-icon{
   display: none;
