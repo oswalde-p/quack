@@ -43,6 +43,7 @@
   text-length: 32;
 }
 
+
 #stat2{
   font-size: 22;
   text-anchor: end;
@@ -58,6 +59,10 @@
   height: 20%;
   fill: rgb(82, 205, 56);
 
+}
+
+#settings-icon{
+  display: none;
 }
 
 #settings-screen{

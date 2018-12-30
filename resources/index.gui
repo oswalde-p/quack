@@ -1,9 +1,6 @@
 <svg id="background" class="background">
-  <link rel="import" href="settings.gui" />
-
-  <svg id="top-left">
   <text id="stat1" class="stat"></text>
-  </svg>
+  <rect id="settings-icon" pointer-events="visible" x="0"   y="0" width="80" height="80" fill="blue" display="none"/>
 
   <svg id="top-right">
   <text id="stat2" class="stat"></text>
@@ -13,5 +10,4 @@
   <text id="message">Ellie is a butt! </text>
   <text id="date" />
 
-  <rect id="bottom-left"></rect>
 </svg>

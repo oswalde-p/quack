@@ -21,10 +21,10 @@ const timeText = document.getElementById("time");
 const background = document.getElementById("background");
 const message = document.getElementById("message");
 const dateText = document.getElementById("date");
-const settingsButton = document.getElementById("bottom-left")
 const batteryStatusText = document.getElementById("stat1");
 const secondTimeText = document.getElementById("stat2");
 const settingsScreen = document.getElementById("settings-screen")
+const settingsButton = document.getElementById('settings-icon')
 
 let messageOn = false;
 message.style.display = "none";
@@ -112,4 +112,15 @@ function formatDate(date, month){
 
 function warningVibrate(){
     vibration.start("nudge-max")
+}
+
+background.onclick = function(evt){
+  settingsButton.style.display = 'inline'
+  setTimeout(function(){
+    settingsButton.style.display = 'none'
+  }, 3000)
+}
+
+settingsButton.onclick = function(evt){
+  console.log("Show settings now!")
 }
