@@ -38,9 +38,9 @@ export function getTimeStr(now, offset=0){
       hours = util.spacePad(hours % 12 || 12);
   } else {
       // 24h format
-      hours = util.zeroPad(hours);
+      hours = zeroPad(hours);
   }
-  let mins = util.zeroPad(now.getMinutes());
+  let mins = zeroPad(now.getMinutes());
   return `${dayPrefix}${hours}:${mins}`
 
 }

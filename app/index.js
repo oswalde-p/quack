@@ -59,7 +59,7 @@ function showSyncWarning(minutes){
       roundTo = 10
     }
     const roundedMinutes = round(minutes, roundTo)
-//     message.text = `${minutes}m since sync`
+    message.text = `${roundedMinutes}m since sync`
   }
 }
 
