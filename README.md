@@ -5,11 +5,12 @@
     * [x] Time and date
     * [x] Secondary time zone
     * [x] Battery percentage
-* [ ] Vibrate and add warning light when connection to phone is lost
-* On-watch settings:
+* [x] Vibrate and add warning light when connection to phone is lost
+* Settings:
     * [ ] Turn each item on/off
-    * [ ] Alter second time zone offset
+    * [ ] Set second time zone
     * [ ] Set no-connection time
+    * [ ] Choose colour
 
 ## Usage
 * clone repo
