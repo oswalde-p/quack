@@ -1,11 +1,11 @@
 # Quack - simple & functional clock face for fitbit watches
 
-##Features
+## Features
 * Displays:
     * [x] Time and date
     * [x] Secondary time zone
     * [x] Battery percentage
-* [x] Vibrate and add warning light when connection to phone is lost
+* [x] Vibrate and add warning message when connection to phone is lost
 * Settings:
     * [ ] Turn each item on/off
     * [ ] Set second time zone

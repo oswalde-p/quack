@@ -18,13 +18,10 @@ clock.granularity = "minutes";
 
 // Get a handle on the <text> element
 const timeText = document.getElementById("time");
-const background = document.getElementById("background");
 const message = document.getElementById("message");
 const dateText = document.getElementById("date");
 const batteryStatusText = document.getElementById("stat1");
 const secondTimeText = document.getElementById("stat2");
-const settingsScreen = document.getElementById("settings-screen")
-const settingsButton = document.getElementById('settings-icon')
 
 let messageOn = false;
 message.style.display = "none";
@@ -116,21 +113,9 @@ function formatDate(date, month){
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July",
                      "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-  //const lastDigit = date % 10;
   return (monthNames[month] + " " + date);
 }
 
 function warningVibrate(){
     vibration.start("nudge-max")
-}
-
-background.onclick = function(evt){
-  settingsButton.style.display = 'inline'
-  setTimeout(function(){
-    settingsButton.style.display = 'none'
-  }, 3000)
-}
-
-settingsButton.onclick = function(evt){
-  console.log("Show settings now!")
 }

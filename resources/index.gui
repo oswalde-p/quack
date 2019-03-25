@@ -1,6 +1,5 @@
 <svg id="background" class="background">
   <text id="stat1" class="stat"></text>
-  <rect id="settings-icon" pointer-events="visible" x="0"   y="0" width="80" height="80" fill="blue" display="none"/>
 
   <svg id="top-right">
   <text id="stat2" class="stat"></text>
