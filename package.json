@@ -8,7 +8,7 @@
   "fitbit": {
     "appUUID": "385076eb-cd5a-40b9-ac6e-64cb0fa2e25b",
     "appType": "clockface",
-    "appDisplayName": "Shitty clock",
+    "appDisplayName": "Quack",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ff5722",
     "requestedPermissions": [
@@ -20,7 +20,7 @@
     ],
     "i18n": {
       "en": {
-        "name": "Shitty clock"
+        "name": "Quack"
       }
     }
   },

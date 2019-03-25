@@ -13,3 +13,41 @@ export function spacePad(i) {
   }
   return i;
 }
+
+export function round(number, roundTo) {
+  const rounded = Math.round(number)
+  return rounded -  rounded % roundTo
+}
+
+export function getTimeStr(now, offset=0){
+  let dayPrefix = "";
+  let hours = now.getHours() + offset;
+
+  if(hours >= 24){
+    hours = hours % 24;
+    dayPrefix = "+";
+  }else if(hours < 0){
+    hours = hours + 24;
+    dayPrefix = "-";
+  }
+
+
+  //if (preferences.clockDisplay === "12h") {
+  if (false){
+      // 12h format
+      hours = util.spacePad(hours % 12 || 12);
+  } else {
+      // 24h format
+      hours = util.zeroPad(hours);
+  }
+  let mins = util.zeroPad(now.getMinutes());
+  return `${dayPrefix}${hours}:${mins}`
+
+}
+
+export function formatDate(date, month){
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July",
+                    "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  return (monthNames[month] + " " + date);
+}
