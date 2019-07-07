@@ -1,22 +1,20 @@
 import clock from 'clock'
 import document from 'document'
-import { peerSocket } from 'messaging'
 import { battery } from 'power'
-import { formatDate, getTimeStr, round } from '../common/utils'
 import { me as device } from 'device'
 import { vibration } from 'haptics'
 
-// settings
-const settings = {
-  warningThreshold: 35,
-  secondTimeOffset: -8,
-  color: '#783c94',
-  showWarning: true,
-  showBattery: true,
-  showSecondTime: true
-}
+import * as simpleSettings from './simple/device-settings'
+import { formatDate, getTimeStr, round } from '../common/utils'
+import { SETTINGS_EVENTS } from '../common/constants'
+
 // Update the clock every minute
 clock.granularity = 'minutes'
+
+// settings variables
+let secondtimeOffset = 0
+let showSyncWarning = true
+let syncWarningThreshold = 40
 
 // Get a handle on the <text> element
 const timeText = document.getElementById('time')
@@ -32,36 +30,15 @@ clock.ontick = (evt) => {
   let now = evt.date
   updateClock(now)
   updateDate(now)
-  updateSecondTime(now, settings.secondTimeOffset) // not sure why "name" is needed here but okay
+  updateSecondTime(now, secondtimeOffset)
   updateBattery()
-  updateConnectionStatus(now)
-}
-
-peerSocket.onmessage = function (evt){
-  // settings.warningThreshold = evt.data.warningThreshold
-  if ( evt.data.secondTimeOffset) settings.secondTimeOffset = evt.data.secondTimeOffset.name
-  settings.color = evt.data.color
-  settings.showWarning = evt.data.showWarning
-  settings.showBattery = evt.data.showBattery
-  settings.showSecondTime = evt.data.showSecondTime
-  console.log(settings.secondTimeOffset)
-  applySettings()
-}
-
-function applySettings() {
-  console.log('applying settings')
-  console.log(settings)
-  if (settings.showBattery) {
-    batteryStatusText.text = 'on'
-  } else {
-    batteryStatusText.text = 'off'
-  }
+  if (showSyncWarning) updateConnectionStatus(now)
 }
 
 function updateConnectionStatus(now){
   let minutesSinceSync = (now - device.lastSyncTime) / (60*1000)
-  if (minutesSinceSync > settings.warningThreshold){
-    showSyncWarning(minutesSinceSync)
+  if (minutesSinceSync > syncWarningThreshold){
+    displaySyncWarning(minutesSinceSync)
     if (message.style.display === 'none'){
       // showing warning for first time
       warningVibrate()
@@ -73,7 +50,7 @@ function updateConnectionStatus(now){
 
 }
 
-function showSyncWarning(minutes){
+function displaySyncWarning(minutes){
   if (message){
     let roundTo = 5
     if (minutes > 60) {
@@ -103,3 +80,41 @@ function updateClock(now){
 function warningVibrate(){
   vibration.start('nudge-max')
 }
+
+/* -------- SETTINGS -------- */
+function settingsCallback(data) {
+  if (!data) {
+    return
+  }
+
+  data[SETTINGS_EVENTS.SHOW_BATTERY_STATUS] ? batteryStatusText.style.display = 'inline' : batteryStatusText.style.display = 'none'
+
+  data[SETTINGS_EVENTS.SHOW_SECOND_TIME] ? secondTimeText.style.display = 'inline' : secondTimeText.style.display = 'none'
+
+  if (data[SETTINGS_EVENTS.SECOND_TIME_OFFSET]) {
+    secondtimeOffset = Number(data[SETTINGS_EVENTS.SECOND_TIME_OFFSET].name)
+    updateSecondTime(new Date(), secondtimeOffset)
+  }
+
+  showSyncWarning = data[SETTINGS_EVENTS.SHOW_SYNC_WARNAING] ? true : false
+
+  if (data[SETTINGS_EVENTS.SYNC_WARNING_THRESHOLD]) {
+    syncWarningThreshold = Number(data[SETTINGS_EVENTS.SECOND_TIME_OFFSET].name)
+  }
+
+
+  if (data[SETTINGS_EVENTS.PRIMARY_COLOR]) {
+    timeText.style.fill = data[SETTINGS_EVENTS.PRIMARY_COLOR]
+  }
+
+  if (data[SETTINGS_EVENTS.PRIMARY_COLOR_CUSTOM] && data[SETTINGS_EVENTS.PRIMARY_COLOR_CUSTOM].name != '') {
+    try {
+      timeText.style.fill = data[SETTINGS_EVENTS.PRIMARY_COLOR_CUSTOM].name
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+
+}
+simpleSettings.initialize(settingsCallback)
