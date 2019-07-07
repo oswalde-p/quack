@@ -9,7 +9,7 @@ import { formatDate, getTimeStr, round } from '../common/utils'
 import { SETTINGS_EVENTS, DEFAULT_WARNING_THRESHOLD, LOW_BATTERY_LIMIT } from '../common/constants'
 
 // Update the clock every minute
-clock.granularity = 'seconds'
+clock.granularity = 'minutes'
 
 // settings variables
 let secondtimeOffset = 0
