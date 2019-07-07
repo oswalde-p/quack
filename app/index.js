@@ -89,7 +89,6 @@ function settingsCallback(data) {
 
   data[SETTINGS_EVENTS.SHOW_BATTERY_STATUS] ? batteryStatusText.style.display = 'inline' : batteryStatusText.style.display = 'none'
 
-
   data[SETTINGS_EVENTS.SHOW_SECOND_TIME] ? secondTimeText.style.display = 'inline' : secondTimeText.style.display = 'none'
 
   if (data[SETTINGS_EVENTS.SECOND_TIME_OFFSET]) {
@@ -102,6 +101,20 @@ function settingsCallback(data) {
   if (data[SETTINGS_EVENTS.SYNC_WARNING_THRESHOLD]) {
     syncWarningThreshold = Number(data[SETTINGS_EVENTS.SECOND_TIME_OFFSET].name)
   }
+
+
+  if (data[SETTINGS_EVENTS.PRIMARY_COLOR]) {
+    timeText.style.fill = data[SETTINGS_EVENTS.PRIMARY_COLOR]
+  }
+
+  if (data[SETTINGS_EVENTS.PRIMARY_COLOR_CUSTOM] && data[SETTINGS_EVENTS.PRIMARY_COLOR_CUSTOM].name != '') {
+    try {
+      timeText.style.fill = data[SETTINGS_EVENTS.PRIMARY_COLOR_CUSTOM].name
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
 
 }
 simpleSettings.initialize(settingsCallback)
