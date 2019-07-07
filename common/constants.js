@@ -2,10 +2,12 @@ const SETTINGS_EVENTS = {
   SHOW_BATTERY_STATUS: 'showBatteryStatus',
   SHOW_SECOND_TIME: 'showSecondTime',
   SECOND_TIME_OFFSET: 'secondTimeOffset',
-  SHOW_SYNC_WARNAING: 'showWarning',
+  SHOW_SYNC_WARNING: 'showWarning',
   SYNC_WARNING_THRESHOLD: 'warningThreshold',
   PRIMARY_COLOR: 'primaryColor',
   PRIMARY_COLOR_CUSTOM: 'primaryColorCustom'
 }
 
-export { SETTINGS_EVENTS }
+const DEFAULT_WARNING_THRESHOLD = 40
+
+export { SETTINGS_EVENTS, DEFAULT_WARNING_THRESHOLD }

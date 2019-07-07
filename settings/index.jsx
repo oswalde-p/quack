@@ -50,7 +50,7 @@ function settingsComponent() {
           settingsKey="showWarning"
         />
         <TextInput
-          label="Warning message threshold (minutes)"
+          label="Threshold (minutes, default = 40)"
           settingsKey="warningThreshold"
           type="number"
         />
