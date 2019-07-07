@@ -1,12 +1,10 @@
-import clock from "clock"
-import document from "document"
-import { preferences } from "user-settings"
-import { peerSocket } from "messaging"
-import { battery } from "power"
-import { formatDate, getTimeStr, round } from "../common/utils"
-import { me as device } from "device"
-import { type } from "os"
-import { vibration } from "haptics"
+import clock from 'clock'
+import document from 'document'
+import { peerSocket } from 'messaging'
+import { battery } from 'power'
+import { formatDate, getTimeStr, round } from '../common/utils'
+import { me as device } from 'device'
+import { vibration } from 'haptics'
 
 // settings
 const settings = {
@@ -18,25 +16,24 @@ const settings = {
   showSecondTime: true
 }
 // Update the clock every minute
-clock.granularity = "minutes"
+clock.granularity = 'minutes'
 
 // Get a handle on the <text> element
-const timeText = document.getElementById("time");
-const message = document.getElementById("message");
-const dateText = document.getElementById("date");
-const batteryStatusText = document.getElementById("stat1");
-const secondTimeText = document.getElementById("stat2");
+const timeText = document.getElementById('time')
+const message = document.getElementById('message')
+const dateText = document.getElementById('date')
+const batteryStatusText = document.getElementById('stat1')
+const secondTimeText = document.getElementById('stat2')
 
-let messageOn = false;
-message.style.display = "none";
+message.style.display = 'none'
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
-  let now = evt.date;
-  updateClock(now);
-  updateDate(now);
+  let now = evt.date
+  updateClock(now)
+  updateDate(now)
   updateSecondTime(now, settings.secondTimeOffset) // not sure why "name" is needed here but okay
-  updateBattery();
+  updateBattery()
   updateConnectionStatus(now)
 }
 
@@ -66,12 +63,12 @@ function updateConnectionStatus(now){
   if (minutesSinceSync > settings.warningThreshold){
     showSyncWarning(minutesSinceSync)
     if (message.style.display === 'none'){
-        // showing warning for first time
-        warningVibrate()
+      // showing warning for first time
+      warningVibrate()
     }
     message.style.display = 'inline'
   }else{
-      message.style.display = 'none'
+    message.style.display = 'none'
   }
 
 }
@@ -88,7 +85,7 @@ function showSyncWarning(minutes){
 }
 
 function updateDate(now){
-  dateText.text = formatDate(now.getDate(), now.getMonth());
+  dateText.text = formatDate(now.getDate(), now.getMonth())
 }
 
 function updateSecondTime(now, offset){
@@ -96,13 +93,13 @@ function updateSecondTime(now, offset){
 }
 
 function updateBattery(){
-  batteryStatusText.text = Math.floor(battery.chargeLevel) + "%"
+  batteryStatusText.text = Math.floor(battery.chargeLevel) + '%'
 }
 
 function updateClock(now){
-    timeText.text = getTimeStr(now);
+  timeText.text = getTimeStr(now)
 }
 
 function warningVibrate(){
-    vibration.start("nudge-max")
+  vibration.start('nudge-max')
 }

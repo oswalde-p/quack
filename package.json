@@ -3,7 +3,8 @@
   "version": "0.8.0",
   "devDependencies": {
     "@fitbit/sdk": "^1.0.6",
-    "@fitbit/sdk-cli": "^1.6.0"
+    "@fitbit/sdk-cli": "^1.6.0",
+    "eslint": "^6.0.1"
   },
   "fitbit": {
     "appUUID": "385076eb-cd5a-40b9-ac6e-64cb0fa2e25b",

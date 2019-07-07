@@ -1,3 +1,3 @@
-import { me } from 'companion'
+// import { me } from 'companion'
 
 console.log('Yo!')
