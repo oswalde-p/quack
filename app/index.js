@@ -6,10 +6,10 @@ import { vibration } from 'haptics'
 
 import * as simpleSettings from './simple/device-settings'
 import { formatDate, getTimeStr, round } from '../common/utils'
-import { SETTINGS_EVENTS, DEFAULT_WARNING_THRESHOLD } from '../common/constants'
+import { SETTINGS_EVENTS, DEFAULT_WARNING_THRESHOLD, LOW_BATTERY_LIMIT } from '../common/constants'
 
 // Update the clock every minute
-clock.granularity = 'minutes'
+clock.granularity = 'seconds'
 
 // settings variables
 let secondtimeOffset = 0
@@ -70,7 +70,11 @@ function updateSecondTime(now, offset){
 }
 
 function updateBattery(){
-  batteryStatusText.text = Math.floor(battery.chargeLevel) + '%'
+  if(battery.chargeLevel > LOW_BATTERY_LIMIT && !battery.charging){
+    batteryStatusText.text = Math.floor(battery.chargeLevel) + '%'
+  } else {
+    batteryStatusText.text = ''
+  }
 }
 
 function updateClock(now){
@@ -105,7 +109,6 @@ function settingsCallback(data) {
   }
 
   if (data[SETTINGS_EVENTS.SYNC_WARNING_THRESHOLD] && data[SETTINGS_EVENTS.SYNC_WARNING_THRESHOLD].name != '') {
-    // console.log(JSON.stringify(data, null, 2))
     syncWarningThreshold = Number(data[SETTINGS_EVENTS.SYNC_WARNING_THRESHOLD].name)
     updateConnectionStatus(new Date())
   }
