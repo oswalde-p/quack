@@ -31,15 +31,10 @@ function settingsComponent(props) {
               value="true"
               settingsKey="showSecondTime"
           />
-          <Select
-            label="Time zone"
-            settingsKey="secondTimeZone"
-            options={[
-                {name:"UTC+1 Central European"},
-                {name:"UTC+10 Australian Eastern Standard"},
-                {name:"UTC+10 Melbourne"},
-                {name:"UTC+10 Melbourne"}
-            ]}
+          <TextInput
+            label="Time Offset (h)"
+            settingsKey="secondTimeOffset"
+            type="number"
             />
         </Section>
         <Toggle
@@ -48,12 +43,12 @@ function settingsComponent(props) {
             settingsKey="showBattery"
         />
         <Section
-          title={<Text bold>Sync warning</Text>}>     
+          title={<Text bold>Sync warning</Text>}>
           <Toggle
               label="Show"
               value="true"
-              settingsKey="showWarningMessage"
-          />       
+              settingsKey="showWarning"
+          />
             <TextInput
                 label="Warning message threshold"
                 settingsKey="warningThreshold"
@@ -64,5 +59,5 @@ function settingsComponent(props) {
       </Page>
     );
   }
-  
+
   registerSettingsPage(settingsComponent);
