@@ -1,17 +1,17 @@
 // Add zero in front of numbers < 10
 export function zeroPad(i) {
   if (i < 10) {
-    i = "0" + i;
+    i = '0' + i
   }
-  return i;
+  return i
 }
 
 // Add a single space in front of numbers < 10
 export function spacePad(i) {
   if (i < 10) {
-    i = " " + i;
+    i = ' ' + i
   }
-  return i;
+  return i
 }
 
 export function round(number, roundTo) {
@@ -20,34 +20,34 @@ export function round(number, roundTo) {
 }
 
 export function getTimeStr(now, offset=0){
-  let dayPrefix = "";
-  let hours = now.getHours() + offset;
+  let dayPrefix = ''
+  let hours = now.getHours() + offset
 
   if(hours >= 24){
-    hours = hours % 24;
-    dayPrefix = "+";
+    hours = hours % 24
+    dayPrefix = '+'
   }else if(hours < 0){
-    hours = hours + 24;
-    dayPrefix = "-";
+    hours = hours + 24
+    dayPrefix = '-'
   }
 
 
   //if (preferences.clockDisplay === "12h") {
   if (false){
-      // 12h format
-      hours = util.spacePad(hours % 12 || 12);
+    // 12h format
+    hours = util.spacePad(hours % 12 || 12)
   } else {
-      // 24h format
-      hours = zeroPad(hours);
+    // 24h format
+    hours = zeroPad(hours)
   }
-  let mins = zeroPad(now.getMinutes());
+  let mins = zeroPad(now.getMinutes())
   return `${dayPrefix}${hours}:${mins}`
 
 }
 
 export function formatDate(date, month){
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July",
-                    "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July',
+    'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-  return (monthNames[month] + " " + date);
+  return (monthNames[month] + ' ' + date)
 }

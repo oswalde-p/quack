@@ -40,7 +40,7 @@ function settingsComponent(props) {
       <Toggle
         label="Show battery %"
         value="true"
-        settingsKey="showBattery"
+        settingsKey="showBatteryStatus"
       />
       <Section
         title={<Text bold>Sync warning</Text>}>
@@ -50,10 +50,9 @@ function settingsComponent(props) {
           settingsKey="showWarning"
         />
         <TextInput
-          label="Warning message threshold"
+          label="Warning message threshold (minutes)"
           settingsKey="warningThreshold"
           type="number"
-          value="35"
         />
       </Section>
     </Page>

@@ -1,3 +1,3 @@
-// import { me } from 'companion'
+import * as simpleSettings from './simple/companion-settings'
 
-console.log('Yo!')
+simpleSettings.initialize()
