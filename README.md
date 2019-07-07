@@ -7,10 +7,10 @@
     * [x] Battery percentage
 * [x] Vibrate and add warning message when connection to phone is lost
 * Settings:
-    * [ ] Turn each item on/off
-    * [ ] Set second time zone
-    * [ ] Set no-connection time
-    * [ ] Choose colour
+    * [x] Turn each item on/off
+    * [x] Set second time zone
+    * [x] Set no-connection time
+    * [x] Choose colour
 
 ## Usage
 * clone repo
