@@ -6,7 +6,7 @@
   </svg>
 
   <text id="time" />
-  <text id="message">Ellie is a butt! </text>
+  <text id="message"></text>
   <text id="date" />
 
 </svg>
