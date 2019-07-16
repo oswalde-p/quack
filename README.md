@@ -1,5 +1,5 @@
 # Quack - simple & functional clock face for fitbit watches
-
+Currently available for [download in the fitbit Gallery](https://gallery.fitbit.com/details/385076eb-cd5a-40b9-ac6e-64cb0fa2e25b)!
 ## Features
 * Displays:
     * [x] Time and date
