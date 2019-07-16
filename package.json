@@ -14,6 +14,7 @@
     "wipeColor": "#ff5722",
     "requestedPermissions": [],
     "buildTargets": [
+      "gemini",
       "higgs",
       "meson"
     ],
