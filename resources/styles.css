@@ -13,11 +13,12 @@
 }
 
 #message{
+  fill: #ab1931;
   font-size: 26;
   text-anchor: middle;
+  text-length: 32;
   x: 50%;
   y: 80%;
-  fill: #ab1931;
 }
 
 #date{
