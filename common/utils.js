@@ -51,3 +51,15 @@ export function formatDate(date, month){
 
   return (monthNames[month] + ' ' + date)
 }
+
+/**
+ * Stolen from https://coderwall.com/p/_g3x9q/how-to-check-if-javascript-object-is-empty
+ * @param {Object} obj
+ */
+export function isEmpty(obj) {
+  for(var key in obj) {
+    if(obj.hasOwnProperty(key)) // eslint-disable-line
+      return false
+  }
+  return true
+}
