@@ -10,37 +10,37 @@ msgstr "pm"
 ### MONTHS ###
 
 msgid "jan"
-msgstr "Ene."
+msgstr "EN."
 
 msgid "feb"
-msgstr "Feb."
+msgstr "FEB."
 
 msgid "mar"
-msgstr "Mar."
+msgstr "MAR."
 
 msgid "apr"
-msgstr "Abr."
+msgstr "ABR."
 
 msgid "may"
-msgstr "Mayo"
+msgstr "MAY."
 
 msgid "june"
-msgstr "Jun."
+msgstr "JUN."
 
 msgid "july"
-msgstr "Jul."
+msgstr "JUL."
 
 msgid "aug"
-msgstr "Ago."
+msgstr "AG."
 
 msgid "sep"
-msgstr "Sep."
+msgstr "SET."
 
 msgid "oct"
-msgstr "Oct."
+msgstr "OCT."
 
 msgid "nov"
-msgstr "Nov."
+msgstr "NOV."
 
 msgid "dec"
-msgstr "Dic."
+msgstr "DIC."
