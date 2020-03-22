@@ -28,7 +28,6 @@ function settingsComponent() {
         title={<Text bold>Secondary time</Text>}>
         <Toggle
           label="Show"
-          value="true"
           settingsKey="showSecondTime"
         />
         <TextInput
@@ -39,14 +38,12 @@ function settingsComponent() {
       </Section>
       <Toggle
         label="Show battery %"
-        value="true"
         settingsKey="showBatteryStatus"
       />
       <Section
         title={<Text bold>Sync warning</Text>}>
         <Toggle
           label="Show"
-          value="true"
           settingsKey="showWarning"
         />
         <TextInput
