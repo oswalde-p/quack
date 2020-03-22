@@ -1,3 +1,5 @@
+import { preferences } from 'user-settings'
+
 // Add zero in front of numbers < 10
 export function zeroPad(i) {
   if (i < 10) {
@@ -19,7 +21,7 @@ export function round(number, roundTo) {
   return rounded -  rounded % roundTo
 }
 
-export function getTimeStr(now, offset=0){
+export function formatTime(now, offset=0){
   let dayPrefix = ''
   now.setMinutes(now.getMinutes() + offset * 60)
   let hours = now.getHours()
@@ -32,17 +34,20 @@ export function getTimeStr(now, offset=0){
     dayPrefix = '-'
   }
 
-
-  //if (preferences.clockDisplay === "12h") {
-  if (false){
+  let abbreviation = ''
+  if (preferences.clockDisplay === '12h') {
     // 12h format
-    hours = util.spacePad(hours % 12 || 12)
+    abbreviation = hours >= 12 ? 'pm' : 'am'
+    hours = spacePad(hours % 12 || 12)
   } else {
     // 24h format
     hours = zeroPad(hours)
   }
   let mins = zeroPad(now.getMinutes())
-  return `${dayPrefix}${hours}:${mins}`
+  return {
+    time: `${dayPrefix}${hours}:${mins}`,
+    abbreviation
+  }
 
 }
 

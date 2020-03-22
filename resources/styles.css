@@ -3,13 +3,22 @@
 }
 
 #time {
-  font-size: 110;
+  fill: #783c94;
   font-family: Colfax-Regular;
-  text-length: 32;
+  font-size: 110;
   text-anchor: middle;
+  text-length: 32;
   x: 50%;
   y: 50%+40;
+}
+
+#abbreviation {
   fill: #783c94;
+  font-size: 30;
+  text-anchor: end;
+  text-length: 2;
+  x: 88%;
+  y: 72%;
 }
 
 #message{
@@ -22,25 +31,24 @@
 }
 
 #date{
+  fill: #d1d1d1;
+  font-size: 30;
   text-anchor: middle;
   text-length: 32;
   x: 50%;
   y: 100%-10;
-  font-size: 30;
-  fill: #d1d1d1;
 }
 
 .stat{
-  font-size: 20;
   fill: rgb(100,100,100);
-
+  font-size: 20;
 }
 
 #stat1{
-  x:5%;
-  y:20;
   text-anchor: start;
   text-length: 32;
+  x:5%;
+  y:20;
 }
 
 

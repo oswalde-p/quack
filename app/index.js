@@ -4,12 +4,13 @@ import { battery } from 'power'
 import { me as device } from 'device'
 import { vibration } from 'haptics'
 
-import { formatDate, getTimeStr, round } from '../common/utils'
+import { formatDate, formatTime, round } from '../common/utils'
 import { LOW_BATTERY_LIMIT } from '../common/constants'
 import { Settings } from './settings'
 
 // Get a handle on the <text> element
 const timeText = document.getElementById('time')
+const abbreviationText = document.getElementById('abbreviation')
 const message = document.getElementById('message')
 const dateText = document.getElementById('date')
 const batteryStatusText = document.getElementById('stat1')
@@ -62,7 +63,12 @@ function updateDate(now){
 }
 
 function updateSecondTime(now){
-  secondTimeText.text = settings.showSecondTime ? getTimeStr(now, settings.secondtimeOffset) : ''
+  if (settings.showSecondTime) {
+    const { time, abbreviation } = formatTime(now, settings.secondtimeOffset)
+    secondTimeText.text = `${time}${abbreviation}`
+  } else {
+    secondTimeText.text = ''
+  }
 }
 
 function updateBattery(){
@@ -75,10 +81,14 @@ function updateBattery(){
 }
 
 function updateClock(now){
-  timeText.text = getTimeStr(now)
+  const { time, abbreviation } = formatTime(now)
+  timeText.text = time
+  abbreviationText.text = abbreviation || ''
+
   if (settings.color != timeText.style.fill) {
     try {
       timeText.style.fill = settings.color
+      abbreviationText.style.fill = settings.color
     } catch(err) {
       if (err.message.substring(0,22) == 'Cannot set property to') {
         console.log(`Cannot set color to "${settings.color}"`) // eslint-disable-line no-console
