@@ -24,6 +24,6 @@ function sendSettingData(data) {
   if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
     messaging.peerSocket.send(data)
   } else {
-    console.log('No peerSocket connection')
+    console.log('No peerSocket connection') // eslint-disable-line no-console
   }
 }

@@ -20,9 +20,9 @@ export function round(number, roundTo) {
 }
 
 export function getTimeStr(now, offset=0){
-  let dayPrefix = '';
-  now.setMinutes(now.getMinutes() + offset * 60);
-  let hours = now.getHours();
+  let dayPrefix = ''
+  now.setMinutes(now.getMinutes() + offset * 60)
+  let hours = now.getHours()
 
   if(hours >= 24){
     hours = hours % 24
