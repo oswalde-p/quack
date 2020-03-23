@@ -6,6 +6,7 @@
   </svg>
 
   <text id="time" />
+  <text id="abbreviation" />
   <text id="message"></text>
   <text id="date" />
 
