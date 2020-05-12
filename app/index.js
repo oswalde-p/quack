@@ -64,7 +64,7 @@ function updateDate(now){
 
 function updateSecondTime(now){
   if (settings.showSecondTime) {
-    const { time, abbreviation } = formatTime(now, settings.secondtimeOffset)
+    const { time, abbreviation } = formatTime(now, settings.secondtimeOffset, settings.clockDisplay)
     secondTimeText.text = `${time}${abbreviation}`
   } else {
     secondTimeText.text = ''
@@ -81,7 +81,7 @@ function updateBattery(){
 }
 
 function updateClock(now){
-  const { time, abbreviation } = formatTime(now)
+  const { time, abbreviation } = formatTime(now, 0, settings.clockDisplay)
   timeText.text = time
   abbreviationText.text = abbreviation || ''
 
