@@ -5,7 +5,8 @@ const SETTINGS_EVENTS = {
   SHOW_SYNC_WARNING: 'showWarning',
   SYNC_WARNING_THRESHOLD: 'warningThreshold',
   PRIMARY_COLOR: 'primaryColor',
-  PRIMARY_COLOR_CUSTOM: 'primaryColorCustom'
+  PRIMARY_COLOR_CUSTOM: 'primaryColorCustom',
+  CLOCK_DISPLAY: 'clockDisplay'
 }
 
 const DEFAULT_WARNING_THRESHOLD = 40

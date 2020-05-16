@@ -1,5 +1,3 @@
-import { preferences } from 'user-settings'
-
 // Add zero in front of numbers < 10
 export function zeroPad(i) {
   if (i < 10) {
@@ -21,7 +19,7 @@ export function round(number, roundTo) {
   return rounded -  rounded % roundTo
 }
 
-export function formatTime(now, offset=0){
+export function formatTime(now, offset=0, clockDisplay){
   let dayPrefix = ''
   now.setMinutes(now.getMinutes() + offset * 60)
   let hours = now.getHours()
@@ -35,7 +33,7 @@ export function formatTime(now, offset=0){
   }
 
   let abbreviation = ''
-  if (preferences.clockDisplay === '12h') {
+  if (clockDisplay === '12h') {
     // 12h format
     abbreviation = hours >= 12 ? 'pm' : 'am'
     hours = spacePad(hours % 12 || 12)
