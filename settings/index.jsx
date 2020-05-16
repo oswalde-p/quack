@@ -1,12 +1,14 @@
+import { gettext } from 'i18n'
+
 import { SETTINGS_EVENTS as EVENTS } from '../common/constants'
 
 function settingsComponent() {
   return (
     <Page>
       <Section
-        title={<Text bold>Clock colour</Text>}>
+        title={<Text bold>{gettext('title-clock-color')}</Text>}>
         <ColorSelect
-          label="Clock colour"
+          label={gettext('label-clock-color')}
           settingsKey={EVENTS.PRIMARY_COLOR}
           colors={[
             {color: '#783c94'},
@@ -20,49 +22,49 @@ function settingsComponent() {
           ]}
         />
         <TextInput
-          label="Custom colour"
+          label={gettext('label-custom-color')}
           settingsKey={EVENTS.PRIMARY_COLOR_CUSTOM}
         />
-        <Text>You may enter a custom hex colour (eg #783c94) here. This will be used instead of the colour selected above.</Text>
+        <Text>{gettext('description-custom-color')}</Text>
 
       </Section>
       <Section
         title={<Text bold>Secondary time</Text>}>
         <Toggle
-          label="Show"
+          label={gettext('label-show-second-time')}
           settingsKey={EVENTS.SHOW_SECOND_TIME}
         />
         <TextInput
-          label="Time Offset (h)"
+          label={gettext('label-second-time-offset-hours')}
           settingsKey={EVENTS.SECOND_TIME_OFFSET}
           type="number"
         />
       </Section>
       <Toggle
-        label="Show battery %"
+        label={gettext('label-show-battery')}
         settingsKey={EVENTS.SHOW_BATTERY_STATUS}
       />
       <Section
-        title={<Text bold>Sync warning</Text>}>
+        title={<Text bold>{gettext('title-sync-warning')}</Text>}>
         <Toggle
-          label="Show"
+          label={gettext('label-show-sync-warning')}
           settingsKey={EVENTS.SHOW_SYNC_WARNING}
         />
         <TextInput
-          label="Threshold (minutes, default = 40)"
+          label={gettext('label-sync-threshold')}
           settingsKey={EVENTS.SYNC_WARNING_THRESHOLD}
           type="number"
         />
       </Section>
       <Section
-        title={<Text bold>Advanced</Text>}>
+        title={<Text bold>{gettext('title-advanced')}</Text>}>
         <Select
-          label="Clock Display Time"
+          label={gettext('label-clock-display')}
           settingsKey={EVENTS.CLOCK_DISPLAY}
           options={[
-            { name: 'Use Fitbit profile setting (default)'},
-            { name: '12h' },
-            { name: '24h' }
+            { name: gettext('option-time-default'), value: 'default' },
+            { name: gettext('option-time-12h'), value: '12h' },
+            { name: gettext('option-time-24h'), value: '24h' }
           ]}
         />
       </Section>

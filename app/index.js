@@ -3,6 +3,7 @@ import document from 'document'
 import { battery } from 'power'
 import { me as device } from 'device'
 import { vibration } from 'haptics'
+import { gettext } from 'i18n'
 
 import { formatDate, formatTime, round } from '../common/utils'
 import { LOW_BATTERY_LIMIT } from '../common/constants'
@@ -54,7 +55,7 @@ function displaySyncWarning(minutes){
       roundTo = 10
     }
     const roundedMinutes = round(minutes, roundTo)
-    message.text = `${roundedMinutes}m since sync`
+    message.text = `${roundedMinutes}${gettext('mins-since-sync')}`
   }
 }
 

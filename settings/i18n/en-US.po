@@ -1,0 +1,47 @@
+msgid "title-clock-color"
+msgstr "Clock colour"
+
+msgid "label-clock-color"
+msgstr "Clock colour"
+
+msgid "label-custom-color"
+msgstr "Custom colour"
+
+msgid "description-custom-color"
+msgstr "You may enter a custom hex colour (eg #783c94) here. This will be used instead of the colour selected above."
+
+msgid "title-second-time"
+msgstr "Secondary time"
+
+msgid "label-show-second-time"
+msgstr "Show"
+
+msgid "label-second-time-offset-hours"
+msgstr "Time Offset (h)"
+
+msgid "label-show-battery"
+msgstr "Show battery %"
+
+msgid "title-sync-warning"
+msgstr "Sync warning"
+
+msgid "label-show-sync-warning"
+msgstr "Show"
+
+msgid "label-sync-threshold"
+msgstr "Threshold (minutes, default = 40)"
+
+msgid "title-advanced"
+msgstr "Advanced"
+
+msgid "label-clock-display"
+msgstr "Time format"
+
+msgid "option-time-default"
+msgstr "Use Fitbit profile setting (default)"
+
+msgid "option-time-12h"
+msgstr "12h"
+
+msgid "option-time-24h"
+msgstr "24h"
