@@ -54,7 +54,7 @@ function callback(data, storage) {
       data[EVENTS.CLOCK_DISPLAY].values &&
       data[EVENTS.CLOCK_DISPLAY].values.length > 0
     ) {
-      const val = data[EVENTS.CLOCK_DISPLAY].values[0].name
+      const val = data[EVENTS.CLOCK_DISPLAY].values[0].value
       if (val == '12h') {
         storage.clockDisplay = '12h'
       } else if (val == '24h') {
