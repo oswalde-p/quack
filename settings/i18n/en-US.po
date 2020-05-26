@@ -17,7 +17,7 @@ msgid "label-show-second-time"
 msgstr "Show"
 
 msgid "label-second-time-offset-hours"
-msgstr "Time Offset (h)"
+msgstr "Time difference (h)"
 
 msgid "label-show-battery"
 msgstr "Show battery %"

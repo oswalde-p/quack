@@ -1,0 +1,46 @@
+msgid "mins-since-sync"
+msgstr "m desde la sinc"
+
+msgid "am"
+msgstr "am"
+
+msgid "pm"
+msgstr "pm"
+
+### MONTHS ###
+
+msgid "jan"
+msgstr "EN."
+
+msgid "feb"
+msgstr "FEB."
+
+msgid "mar"
+msgstr "MAR."
+
+msgid "apr"
+msgstr "ABR."
+
+msgid "may"
+msgstr "MAY."
+
+msgid "june"
+msgstr "JUN."
+
+msgid "july"
+msgstr "JUL."
+
+msgid "aug"
+msgstr "AG."
+
+msgid "sep"
+msgstr "SET."
+
+msgid "oct"
+msgstr "OCT."
+
+msgid "nov"
+msgstr "NOV."
+
+msgid "dec"
+msgstr "DIC."

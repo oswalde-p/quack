@@ -1,4 +1,5 @@
 import { gettext } from 'i18n'
+import { locale } from 'user-settings'
 
 // Add zero in front of numbers < 10
 export function zeroPad(i) {
@@ -54,8 +55,12 @@ export function formatTime(now, offset=0, clockDisplay){
 export function formatDate(date, month){
   const monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'june', 'july',
     'aug', 'sep', 'oct', 'nov', 'dec']
-
-  return (gettext(monthNames[month]) + ' ' + date)
+  const monthName = gettext(monthNames[month])
+  const monthFirstLocales = ['en-us']
+  if (monthFirstLocales.indexOf(locale.language) > -1) {
+    return (`${monthName} ${date}`)
+  }
+  return (`${date} ${monthName}`)
 }
 
 /**
